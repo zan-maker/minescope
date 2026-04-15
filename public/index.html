@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MineScope — AI-Powered Critical Mineral Supply Chain Intelligence</title>
+  <meta name="description" content="MineScope is an AI-powered dashboard that tracks critical mineral supply chains in real-time. Built entirely with MeDo, Baidu's conversational AI no-code builder." />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="MineScope — Critical Mineral Supply Chain Intelligence" />
+  <meta property="og:description" content="Track commodity prices, supply chain risks, mineral reserves, and ESG compliance — built with MeDo" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/minescope-logo-1024x1024.png" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MineScope — Critical Mineral Supply Chain Intelligence" />
+  <meta name="twitter:description" content="AI-powered supply chain dashboard built with MeDo #BuiltWithMeDo" />
+  <meta name="twitter:image" content="assets/minescope-logo-1024x1024.png" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/minescope-logo-480x480.png" />
+  
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #050a15;
+      color: #f1f5f9;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ─── Layout ─── */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ─── Hero Section ─── */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 80px 24px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 50% 50%, rgba(20, 184, 166, 0.06) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 0 40px rgba(20, 184, 166, 0.2);
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #f1f5f9, #14b8a6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero .tagline {
+      font-size: 18px;
+      color: #94a3b8;
+      margin-bottom: 16px;
+      max-width: 600px;
+    }
+
+    .hero .medo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      background: rgba(212, 160, 23, 0.1);
+      border: 1px solid rgba(212, 160, 23, 0.3);
+      color: #d4a017;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* ─── Features Grid ─── */
+    .features {
+      padding: 60px 0;
+    }
+
+    .features h2 {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .features .subtitle {
+      text-align: center;
+      color: #64748b;
+      margin-bottom: 48px;
+      font-size: 16px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: #0d1520;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 32px 24px;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      border-color: #14b8a640;
+      box-shadow: 0 0 30px rgba(20, 184, 166, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .feature-card .icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .feature-card h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #f1f5f9;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: #94a3b8;
+      line-height: 1.7;
+    }
+
+    /* ─── How It Was Built ─── */
+    .how-built {
+      padding: 60px 0;
+      border-top: 1px solid #1e293b;
+    }
+
+    .how-built h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .conversation-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .step {
+      display: flex;
+      gap: 16px;
+    }
+
+    .step-number {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #14b8a6, #0d9488);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .step-content h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #f1f5f9;
+    }
+
+    .step-content p {
+      font-size: 14px;
+      color: #94a3b8;
+    }
+
+    /* ─── Stats ─── */
+    .stats {
+      padding: 48px 0;
+      border-top: 1px solid #1e293b;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 36px;
+      font-weight: 800;
+      color: #14b8a6;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    /* ─── CTA ─── */
+    .cta {
+      text-align: center;
+      padding: 60px 0;
+    }
+
+    .cta h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .cta p {
+      color: #94a3b8;
+      margin-bottom: 24px;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #14b8a6, #0d9488);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(20, 184, 166, 0.3);
+    }
+
+    /* ─── Footer ─── */
+    .footer {
+      padding: 24px 0;
+      text-align: center;
+      border-top: 1px solid #1e293b;
+    }
+
+    .footer p {
+      font-size: 13px;
+      color: #334155;
+    }
+
+    .footer a {
+      color: #14b8a6;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+      .hero .tagline { font-size: 16px; }
+      .features h2, .how-built h2 { font-size: 24px; }
+      .stat-value { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <img src="assets/minescope-logo-480x480.png" alt="MineScope Logo" class="hero-logo" />
+    <h1>MineScope</h1>
+    <p class="tagline">
+      AI-Powered Critical Mineral Supply Chain Intelligence.<br />
+      Built entirely with <strong style="color: #d4a017;">MeDo</strong>.
+    </p>
+    <div class="medo-badge">
+      ⚡ Powered by MeDo · Baidu ERNIE
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features container">
+    <h2>Everything You Need</h2>
+    <p class="subtitle">Track critical mineral supply chains from mine to market</p>
+    
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="icon">📈</div>
+        <h3>Real-Time Price Tracker</h3>
+        <p>Live commodity prices for lithium, cobalt, nickel, rare earths, and copper with historical trend lines and smart price alerts.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🗺️</div>
+        <h3>Supply Chain Map</h3>
+        <p>Interactive world map with country-level drill-down showing mining operations, production volumes, and regulatory environments.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">⚠️</div>
+        <h3>Risk Scorecard</h3>
+        <p>Multi-dimensional risk scoring across geopolitical, environmental, regulatory, infrastructure, labor, and market concentration factors.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">📦</div>
+        <h3>Mineral Reserves</h3>
+        <p>Global reserve estimates, production-to-reserve ratios, country distribution, and depletion projections for 5 critical minerals.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🏢</div>
+        <h3>Company Comparison</h3>
+        <p>Side-by-side analysis of mining companies across production, ESG scores, market cap, and reserves with sortable tables.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🌱</div>
+        <h3>ESG Tracker</h3>
+        <p>Environmental, Social & Governance compliance scores with trend tracking, peer benchmarking, and regulatory status monitoring.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Was Built -->
+  <section class="how-built container">
+    <h2>🤖 Built with 5 Conversations</h2>
+    <div class="conversation-steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h4>"Build a critical mineral supply chain dashboard..."</h4>
+          <p>MeDo generated the full app scaffold, data models for 5 minerals and 15 countries, and a dark-themed responsive layout.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h4>"Add interactive charts: line, bar, radar, heatmap..."</h4>
+          <p>MeDo created 6 chart components with Recharts, including multi-select filters for mineral type, country, and time period.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h4>"Add company comparison with search and alerts..."</h4>
+          <p>MeDo generated a search component with autocomplete, side-by-side comparison cards, sortable tables, and an alert feed system.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h4>"Dark theme with teal/gold, sidebar nav, responsive..."</h4>
+          <p>MeDo overhauled the design system with CSS variables, a 7-tab collapsible sidebar, and responsive breakpoints for mobile/tablet/desktop.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <h4>"Real-time price ticker, interactive map clicks, tooltips..."</h4>
+          <p>MeDo added a scrolling price ticker, drill-down country panels, rich tooltips on all charts, and a Supply Chain Spotlight section.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats container">
+    <div class="stats-grid">
+      <div>
+        <div class="stat-value">30 min</div>
+        <div class="stat-label">Total Development Time</div>
+      </div>
+      <div>
+        <div class="stat-value">2,050</div>
+        <div class="stat-label">Lines of Code Generated</div>
+      </div>
+      <div>
+        <div class="stat-value">5</div>
+        <div class="stat-label">Natural Language Prompts</div>
+      </div>
+      <div>
+        <div class="stat-value">0</div>
+        <div class="stat-label">Lines Written by Human</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta container">
+    <h2>See the Full Conversation</h2>
+    <p>Read how MeDo turned natural language into a production-ready dashboard</p>
+    <a href="docs/medo-conversation.md" class="cta-button">
+      📖 View MeDo Conversation Log →
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer container">
+    <p>
+      © 2025 MineScope · Built with <a href="https://imedo.baidu.com">MeDo</a> · Baidu ERNIE<br />
+      <span style="color: #d4a017;">#BuiltWithMeDo</span>
+    </p>
+  </footer>
+
+</body>
+</html>
