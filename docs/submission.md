@@ -1,4 +1,4 @@
-# Hackathon Submission — MineScope
+# Hackathon Submission — MineScope Cloud
 
 ---
 
@@ -6,87 +6,68 @@
 
 | Field | Value |
 |---|---|
-| **Project Name** | MineScope |
-| **Tagline** | AI-Powered Critical Mineral Supply Chain Intelligence |
-| **Category** | Open |
-| **Built With** | React, TypeScript, Recharts, Tailwind CSS |
+| **Project Name** | MineScope Cloud |
+| **Tagline** | 7 Expert AWS Prompts for Critical Mineral Supply Chain Intelligence |
+| **Challenge** | AWS Prompt the Planet (DoraHacks) |
+| **Category** | AI/ML, Data Analytics, Cloud Infrastructure |
 | **License** | MIT |
 
 ---
 
 ## Short Description (Under 300 Characters)
 
-> MineScope is an AI-powered dashboard that tracks critical mineral supply chains in real-time — commodity prices, geopolitical risks, reserves, ESG compliance, and company comparisons — all in one unified interface.
+> MineScope Cloud: 7 expert AWS prompts that deploy a complete critical mineral intelligence platform — real-time data pipeline, Claude AI risk analysis, QuickSight dashboards, security, FinOps, and multi-region DR.
 
-**Character count:** 207 / 300
+**Character count:** 231 / 300
 
 ---
 
 ## Long Description
 
-### The Problem We're Solving
+### The Problem
 
-The global energy transition depends on five critical minerals: lithium, cobalt, nickel, rare earth elements, and copper. But their supply chains are dangerously concentrated — 70% of rare earths come from China, 70% of cobalt from the DRC. A single export ban, port closure, or regulatory change can send shockwaves through the global economy.
+Critical mineral supply chains — lithium, cobalt, nickel, rare earths, copper — are the backbone of the energy transition. EVs, solar panels, wind turbines, and grid batteries all depend on these five minerals. But their supply chains are dangerously concentrated: 70% of rare earths come from China, 70% of cobalt from the DRC. A single export ban, port closure, or sanctions package can send shockwaves through the global economy.
 
-Mining companies, investors, and policymakers currently rely on fragmented, stale data spread across dozens of platforms. There's no unified tool that connects commodity pricing with supply chain risk, reserve estimates, and ESG compliance. The result? Billions in losses from blind decisions.
+Currently, mining companies, investors, and policymakers rely on fragmented, stale data spread across dozens of platforms. There's no unified system that combines real-time commodity pricing with geopolitical risk analysis, supply chain mapping, and ESG compliance tracking. The result is billions in losses from blind decisions made on outdated information.
 
-### Our Solution: MineScope
+### Our Solution: MineScope Cloud
 
-MineScope is a comprehensive supply chain intelligence dashboard that brings together all critical mineral data into a single, interactive interface. It provides decision-makers with real-time visibility into the complex world of critical mineral supply chains.
+MineScope Cloud is a collection of **7 expert-grade AWS prompts** that, when executed by an AI assistant, generate a complete, production-grade critical mineral intelligence platform. Each prompt is self-contained and produces deployable infrastructure-as-code (AWS CDK in TypeScript), covering every layer of a modern cloud application:
 
-The dashboard features:
+1. **Real-Time Data Pipeline** (Lambda + EventBridge + Kinesis + S3) — Ingests price ticks, geopolitical events, and supply chain status updates, aggregates them into OHLCV candles, and detects price spikes automatically.
 
-- **Real-Time Price Tracking** — Live commodity prices for 5 minerals with historical trend lines, multi-timeframe selectors, and smart price alerts
-- **Interactive Supply Chain Map** — World map with country-level drill-down, color-coded by production concentration (HHI index)
-- **Multi-Dimensional Risk Scoring** — Radar charts and heatmaps assessing geopolitical, environmental, regulatory, infrastructure, labor, and market concentration risks
-- **Mineral Reserve Dashboard** — Reserve estimates, production volumes, and depletion projections by region
-- **Company Comparison Tool** — Side-by-side analysis of mining companies across production, ESG, market cap, and cost metrics
-- **ESG Compliance Tracker** — Environmental, Social, and Governance scores with trend tracking and regulatory status
-- **Smart Alert System** — Real-time notifications for price spikes, supply disruptions, and regulatory changes
+2. **AI Geopolitical Risk Analysis** (Bedrock + Claude 3.5 Sonnet + Comprehend) — Analyzes news articles from global sources, extracts entities (minerals, countries, policies), and generates structured risk scores with confidence ratings, recommended actions, and supply impact estimates.
+
+3. **Interactive Intelligence Dashboard** (QuickSight + Athena + Glue) — A 5-tab executive dashboard with price analytics, geopolitical risk intelligence, supply chain operations, and company benchmarking — all backed by a serverless data lake.
+
+4. **Security & Compliance Posture** (Security Hub + IAM + Config + KMS + WAF + Shield) — Multi-account security with least-privilege IAM, encryption at rest and in transit, audit trails, DDoS protection, and automated incident response.
+
+5. **FinOps Cost Optimization** (Cost Explorer + Budgets + Anomaly Detection) — Proactive budget alerts, auto cost-saving measures at 90% budget, Claude token budgeting, right-sizing recommendations, and daily cost forecasting.
+
+6. **Multi-Region Disaster Recovery** (DynamoDB Global Tables + S3 CRR + Route 53 + CloudFront) — Active-active replication across 3 AWS regions (us-east-1, eu-west-1, ap-southeast-1) with RPO < 1 minute and RTO < 15 minutes.
+
+7. **Full IaC Deployment** (CDK + CodePipeline + CodeBuild + X-Ray) — Complete CI/CD pipeline deploying all 6 systems with environment management, security gates (cdk-nag), and automated DR testing.
 
 ### Best Feature
 
-The **Interactive Supply Chain Map with Country Drill-Down** is our best feature. Here's why:
+The **Claude-powered geopolitical risk analysis pipeline** is the standout feature. Here's why:
 
-When you click on a country like the DRC on the world map, a detailed panel slides in showing:
-- Production volumes by mineral with global share percentages
-- A multi-axis risk assessment visualization (geopolitical: 82, environmental: 72, regulatory: 88, infrastructure: 85, labor: 92)
-- ESG compliance score
-- Top mining companies operating in the country
-- Data source citations
+When a news article about, say, China announcing new rare earth export restrictions hits the wire, the system automatically: (1) parses the article, (2) detects the language and translates if needed, (3) extracts entities using Amazon Comprehend's custom NER (identifying "rare earths" as a mineral, "China" as a country, "export restriction" as a trade policy), (4) sends the enriched article to Claude 3.5 Sonnet via Amazon Bedrock with an expert-crafted system prompt that asks for structured risk assessment, and (5) Claude returns a JSON response with severity score, supply impact percentage, price impact prediction, confidence rating, reasoning, and actionable recommendations for supply chain managers. This assessment is stored in DynamoDB, updates the composite risk score, and triggers an alert if severity exceeds the threshold.
 
-This level of interactive, data-rich functionality brings together what would normally require a frontend developer, a cartographer, and a data scientist — all accessible through a clean, intuitive interface.
+The prompt that generates this entire system includes prompt engineering for Claude's risk analysis system prompt, retry logic with exponential backoff, Bedrock Guardrails for content safety, human-in-the-loop review for high-impact assessments, and a daily AI-generated intelligence briefing. It demonstrates what's possible when you combine expert prompt engineering with the full power of AWS AI services.
 
 ### Why It Matters
 
 - The critical minerals market is projected to reach **$41.5B by 2030**
-- Supply chain disruptions in 2022-2024 caused **$2.3 trillion** in economic losses
-- ESG compliance is now a **legal requirement** in the EU (CSRD) and US (SEC Climate Disclosure)
-- MineScope makes this intelligence accessible to **everyone** — not just companies with Bloomberg terminals
-
-### What's Next
-
-We plan to extend MineScope with:
-- AI-powered supply chain disruption forecasting
-- Predictive commodity pricing models
-- Carbon footprint calculator for supply chain routes
-- Multi-language support (starting with Chinese and Spanish)
-- Integration with real-time market data APIs
+- Supply chain disruptions caused **$2.3 trillion** in economic losses in 2022-2024
+- ESG compliance is now a **legal requirement** (EU CSRD, US SEC Climate Disclosure)
+- This prompt collection makes enterprise-grade intelligence infrastructure **accessible to any developer** — just copy, paste, and deploy
 
 ---
 
 ## Demo Video
 
 > 🔗 [Demo Video — GitHub Releases](https://github.com/zan-maker/minescope/releases/tag/v1.0.0)
->
-> The demo video showcases:
-> 1. Overview of all 7 dashboard sections
-> 2. Interactive world map with country drill-down
-> 3. Company comparison feature
-> 4. Risk scorecard with radar chart
-> 5. Supply Chain Spotlight section
-> 6. Data export to CSV
-> 7. Responsive design on mobile
 
 ---
 
@@ -99,15 +80,19 @@ We plan to extend MineScope with:
 
 ---
 
-## Technology Stack
+## AWS Services Used (20+)
 
-| Technology | Purpose |
-|---|---|
-| **React 18** | Component-based UI framework |
-| **TypeScript** | Type safety |
-| **Recharts** | Data visualization library |
-| **Lucide React** | Icon library |
-| **CSS Custom Properties** | Design system & dark theme |
+| Category | Services |
+|----------|----------|
+| **Compute** | Lambda (arm64), CodeBuild |
+| **Storage** | S3, S3 CRR, DynamoDB Global Tables |
+| **AI/ML** | Bedrock (Claude 3.5 Sonnet), Comprehend, Translate |
+| **Analytics** | QuickSight, Athena, Glue |
+| **Streaming** | EventBridge, Kinesis Data Streams, SQS, SNS |
+| **Security** | Security Hub, IAM, Config, KMS, WAF, Shield, GuardDuty, CloudTrail |
+| **Networking** | Route 53, CloudFront, VPC |
+| **Management** | Cost Explorer, Budgets, Anomaly Detection, Systems Manager, Organizations, Control Tower |
+| **IaC/DevOps** | CDK (TypeScript), CodePipeline, X-Ray, FIS, Step Functions |
 
 ---
 
@@ -115,30 +100,30 @@ We plan to extend MineScope with:
 
 ### Twitter/X Post
 
-> ⛏️ Just shipped MineScope — a critical mineral supply chain intelligence dashboard.
+> ⛏️ MineScope Cloud — 7 expert AWS prompts that deploy a complete critical mineral intelligence platform.
 >
-> 📊 Price tracking 🗺️ Supply chain maps ⚠️ Risk scoring 🌱 ESG tracking
+> Real-time data pipeline, Claude AI risk analysis, QuickSight dashboards, multi-region DR — all from prompts.
 >
-> Real-time visibility into the minerals powering the energy transition.
->
-> #CriticalMinerals #SupplyChain #AI #OpenSource
+> #AWSPromptThePlanet #BuildOnAWS #CriticalMinerals
 
 ### LinkedIn Post
 
-> 🚀 Excited to share MineScope — an AI-powered Critical Mineral Supply Chain Intelligence Dashboard.
+> 🚀 Excited to share MineScope Cloud — my submission for the AWS Prompt the Planet Challenge.
 
-> The dashboard provides real-time visibility into lithium, cobalt, nickel, rare earth, and copper supply chains — tracking commodity prices, mapping geopolitical risks, estimating reserves, comparing mining companies, and monitoring ESG compliance.
+> It's a collection of 7 expert-grade AWS prompts that, when executed by an AI assistant, generate a complete critical mineral supply chain intelligence platform.
 
-> Key features:
-> ✅ Interactive world map with country drill-down
-> ✅ Multi-dimensional risk scoring with radar charts
-> ✅ Company comparison tool with sortable tables
-> ✅ Smart alert system for supply disruptions
-> ✅ Responsive dark theme with teal/gold design system
+> The prompts cover:
+> ✅ Real-time data pipeline (Lambda + Kinesis + EventBridge)
+> ✅ AI risk analysis with Claude 3.5 (Bedrock + Comprehend)
+> ✅ Interactive dashboards (QuickSight + Athena)
+> ✅ Security & compliance (Security Hub + IAM + KMS + WAF)
+> ✅ FinOps optimization (Cost Explorer + Budgets + Anomaly Detection)
+> ✅ Multi-region disaster recovery (DynamoDB Global Tables + S3 CRR)
+> ✅ Full IaC deployment (CDK + CodePipeline)
 
-> The goal is to make supply chain intelligence accessible to everyone — not just Fortune 500 companies.
+> 20+ AWS services, production-grade code, ~$425/month at moderate scale.
 
-> #SupplyChain #CriticalMinerals #AI #Mining #ESG
+> #AWS #PromptEngineering #CriticalMinerals #SupplyChain
 
 ---
 
