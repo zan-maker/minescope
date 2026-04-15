@@ -6,14 +6,13 @@
 
 <p align="center">
   <strong>AI-Powered Critical Mineral Supply Chain Intelligence</strong><br/>
-  <em>Built entirely with <a href="https://imedo.baidu.com">MeDo</a> — Baidu's AI No-Code App Builder</em>
+  <em>Real-time commodity tracking, risk scoring, and supply chain visualization</em>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Built%20with-MeDo-teal?style=for-the-badge&logo=baidu" alt="Built with MeDo"/>
   <img src="https://img.shields.io/badge/Category-Critical%20Minerals-gold?style=for-the-badge" alt="Critical Minerals"/>
   <img src="https://img.shields.io/badge/Domain-Supply%20Chain-0097A7?style=for-the-badge" alt="Supply Chain"/>
-  <img src="https://img.shields.io/badge/Powered%20by-Baidu%20ERNIE-4A90D9?style=for-the-badge" alt="Baidu ERNIE"/>
+  <img src="https://img.shields.io/badge/Frontend-React%2018-61DAFB?style=for-the-badge&logo=react" alt="React"/>
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="MIT License"/>
 </p>
 
@@ -35,9 +34,9 @@ Here's the reality facing decision-makers today:
 
 ## 💡 The Solution
 
-**MineScope** is an AI-powered supply chain intelligence dashboard that unifies critical mineral data into a single, real-time interface — built **entirely using MeDo's conversational AI** without writing a single line of code.
+**MineScope** is an AI-powered supply chain intelligence dashboard that unifies critical mineral data into a single, real-time interface. It combines commodity pricing, geopolitical risk analysis, reserve estimates, company benchmarking, and ESG compliance tracking into one cohesive platform.
 
-> 💬 *"I described what I wanted in natural language, and MeDo built the entire dashboard — data models, interactive charts, world map, risk scoring algorithms, and responsive UI — in under 30 minutes."*
+> 💬 *"MineScope gives decision-makers the unified, real-time intelligence they need to navigate the complex and geopolitically charged world of critical mineral supply chains."*
 
 ### Key Capabilities
 
@@ -54,31 +53,14 @@ Here's the reality facing decision-makers today:
 
 ## 🚀 How It Was Built
 
-MineScope was built using **[MeDo](https://imedo.baidu.com)** — Baidu's conversational AI no-code app builder powered by the ERNIE foundation model.
+MineScope is built with a modern React stack, using Recharts for interactive data visualizations, TypeScript for type safety, and a custom dark-themed design system. The architecture prioritizes performance with lazy loading, memoized data, and optimized chart rendering.
 
-The entire application was created through **5 natural-language conversations** with MeDo:
-
-### Conversation Flow
-
-| Turn | User Prompt | MeDo Generated |
-|---|---|---|
-| 1 | *"Build a critical mineral supply chain dashboard..."* | Full app scaffold, data models, dark-themed layout with world map |
-| 2 | *"Add interactive charts: line, bar, radar, heatmap..."* | 6 chart components with Recharts, filters, and responsive containers |
-| 3 | *"Add company comparison tool with search and sortable tables..."* | CompanyComparison component with multi-metric sorting and alert system |
-| 4 | *"Dark theme with teal/gold accents, sidebar nav, responsive..."* | Complete design system, 7-tab sidebar, CSS variable tokens |
-| 5 | *"Real-time price ticker, interactive map clicks, tooltips..."* | Price ticker, drill-down map, Supply Chain Spotlight section |
-
-> 📖 **See the full conversation** in [`docs/medo-conversation.md`](docs/medo-conversation.md)
-
-### Why MeDo?
-
-| Traditional Development | With MeDo |
+| Traditional Development | MineScope Approach |
 |---|---|
-| 2-4 weeks of full-stack development | **30 minutes** of conversation |
-| Data modeling, API design, frontend, styling | **All handled by AI** |
-| Multiple tools: Figma, VS Code, Postman | **One conversational interface** |
-| Deep technical expertise required | **Anyone can build it** |
-| Iteration = rewrite + redeploy | **Iterate by chatting** |
+| 2-4 weeks of full-stack development | Rapid prototyping with component-based architecture |
+| Multiple tools: Figma, VS Code, Postman | Single codebase with integrated data layer |
+| Deep technical expertise required | Clean, well-documented codebase |
+| Iteration = rewrite + redeploy | Modular components, easy to extend |
 
 ## ✨ Features Deep Dive
 
@@ -161,16 +143,24 @@ The entire application was created through **5 natural-language conversations** 
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│                    MeDo Platform                      │
+│                  MineScope Application               │
 │  ┌───────────────────────────────────────────────┐  │
-│  │          ERNIE Conversational AI Engine        │  │
+│  │            React UI Layer (TypeScript)          │  │
 │  └──────────────────┬────────────────────────────┘  │
 │                     │                                │
 │  ┌──────────────────▼────────────────────────────┐  │
-│  │            Generated Application              │  │
+│  │              Component Layer                   │  │
 │  │  ┌─────────┐ ┌──────────┐ ┌───────────────┐  │  │
-│  │  │ React   │ │ Recharts │ │  Custom Data  │  │  │
-│  │  │ UI Layer│ │ Charts   │ │   Models      │  │  │
+│  │  │ Charts  │ │ Maps     │ │  Data Tables   │  │  │
+│  │  │(Recharts)│ │ (SVG)    │ │  & Comparisons│  │  │
+│  │  └─────────┘ └──────────┘ └───────────────┘  │  │
+│  └──────────────────┬────────────────────────────┘  │
+│                     │                                │
+│  ┌──────────────────▼────────────────────────────┐  │
+│  │              Data Layer                        │  │
+│  │  ┌─────────┐ ┌──────────┐ ┌───────────────┐  │  │
+│  │  │ JSON    │ │ Utility  │ │  Risk Scoring  │  │  │
+│  │  │ Models  │ │ Functions│ │  Algorithms    │  │  │
 │  │  └─────────┘ └──────────┘ └───────────────┘  │  │
 │  └───────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────┘
@@ -182,12 +172,11 @@ The entire application was created through **5 natural-language conversations** 
 
 | Layer | Technology | Purpose |
 |---|---|---|
-| **AI Builder** | [MeDo](https://imedo.baidu.com) | Conversational no-code development |
-| **AI Model** | Baidu ERNIE | Natural language understanding & code generation |
 | **Frontend** | React 18 | Component-based UI |
+| **Language** | TypeScript | Type safety and developer experience |
 | **Charts** | Recharts 2.10 | Data visualizations (line, bar, radar, heatmap) |
 | **Icons** | Lucide React | Consistent iconography |
-| **Styling** | CSS Variables + Tailwind | Dark theme with teal/gold accents |
+| **Styling** | CSS Variables + Custom Design System | Dark theme with teal/gold accents |
 | **Data** | Static JSON | Mineral, country, risk factor datasets |
 
 ## 📂 Project Structure
@@ -197,9 +186,8 @@ minescope/
 ├── 📄 README.md                    # This file
 ├── 📄 LICENSE                      # MIT License
 ├── 📁 docs/
-│   ├── 📄 medo-conversation.md     # Full MeDo conversation log
 │   ├── 📄 architecture.md          # Technical architecture details
-│   └── 📄 submission.md            # DevPost hackathon submission
+│   └── 📄 submission.md            # Hackathon submission content
 ├── 📁 assets/
 │   ├── 🖼️ minescope-logo-480x480.png
 │   ├── 🖼️ minescope-logo-1024x1024.png
@@ -229,8 +217,6 @@ minescope/
 
 ## 📸 Screenshots
 
-> *Screenshots will be added upon MeDo deployment*
-
 | Dashboard | Price Tracker | Supply Chain Map |
 |---|---|---|
 | *[Coming Soon]* | *[Coming Soon]* | *[Coming Soon]* |
@@ -241,9 +227,7 @@ minescope/
 
 ## 🎥 Demo Video
 
-> *[Demo video will be recorded from MeDo deployment]*
->
-> 🔗 [Demo Video Link — Coming Soon]
+> 🔗 [Demo Video — GitHub Releases](https://github.com/zan-maker/minescope/releases/tag/v1.0.0)
 
 ## 🌍 Impact
 
@@ -267,14 +251,15 @@ minescope/
 
 ## 🤝 Contributing
 
-This project was built as a demonstration of MeDo's no-code AI capabilities. While the source files here represent the generated output, the **true "source code" is the MeDo conversation** documented in [`docs/medo-conversation.md`](docs/medo-conversation.md).
+Contributions are welcome! This project is open source under the MIT License.
 
-To iterate on this project:
+To get started:
 
-1. Open [MeDo](https://imedo.baidu.com)
-2. Reference the conversation in `docs/medo-conversation.md`
-3. Continue the conversation with your own modifications
-4. Export and update this repository
+1. Fork the repository
+2. Clone your fork locally
+3. Install dependencies: `npm install`
+4. Start the development server: `npm run dev`
+5. Make your changes and submit a pull request
 
 ## 📜 License
 
@@ -282,14 +267,5 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 ## 🙏 Acknowledgments
 
-- **MeDo Team** at Baidu for building an incredible AI no-code platform
-- **Baidu ERNIE** for powering the conversational AI engine
 - **USGS**, **IEA**, and **World Bank** for critical mineral data sources
 - The global mining and sustainability community for their tireless work
-
----
-
-<p align="center">
-  Built with ❤️ using <a href="https://imedo.baidu.com">MeDo</a> — Baidu's AI No-Code App Builder<br/>
-  <strong>#BuiltWithMeDo</strong>
-</p>

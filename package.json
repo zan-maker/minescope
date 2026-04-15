@@ -1,7 +1,7 @@
 {
   "name": "minescope",
   "version": "1.0.0",
-  "description": "AI-Powered Critical Mineral Supply Chain Intelligence — Built with MeDo",
+  "description": "AI-Powered Critical Mineral Supply Chain Intelligence",
   "main": "src/App.tsx",
   "scripts": {
     "dev": "react-scripts start",
@@ -37,8 +37,7 @@
     "minescope",
     "critical-minerals",
     "supply-chain",
-    "medo",
-    "baidu",
+    "react",
     "ai",
     "dashboard",
     "commodity-prices",
@@ -46,7 +45,7 @@
     "esg",
     "risk-analysis"
   ],
-  "author": "Built with MeDo",
+  "author": "MineScope Team",
   "license": "MIT",
   "repository": {
     "type": "git",
